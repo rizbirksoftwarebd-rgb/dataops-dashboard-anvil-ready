@@ -1,0 +1,17 @@
+name: CI placeholder
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: setup python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+      - name: install deps
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt || true
+      - name: run lint
+        run: echo 'Add tests here'
